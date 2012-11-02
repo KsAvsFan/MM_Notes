@@ -8,7 +8,7 @@
 
 #import "MM_DetailViewController.h"
 
-@interface MM_DetailViewController ()
+@interface MM_DetailViewController () <UITextViewDelegate>
 - (void)configureView;
 @end
 
@@ -19,6 +19,14 @@
     [_detailItem release];
     [_detailDescriptionLabel release];
     [super dealloc];
+}
+
+-(void)doneButton:(id)sender {
+    
+    // Ask don why this works.  How come you have to add the endEditing:yes?  ResignFirstResponder alone didn't work. 
+    [self.view endEditing:YES];
+    [noteTextView resignFirstResponder];
+    doneBarButton.enabled = NO;
 }
 
 #pragma mark - Managing the detail item
@@ -41,6 +49,10 @@
     if (self.detailItem) {
         self.detailDescriptionLabel.text = [[self.detailItem valueForKey:@"timeStamp"] description];
     }
+    
+    NSUInteger length;
+    length = [noteTextView.text length];
+    characterCountLabel.text = [NSString stringWithFormat:@"%u", length];
 }
 
 - (void)viewDidLoad
@@ -55,5 +67,18 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark UITextView Delegate
+
+- (void)textViewDidChange:(UITextView *)textView
+{
+    NSUInteger length;
+
+    length = [textView.text length];
+    
+    characterCountLabel.text = [NSString stringWithFormat:@"%u", length];
+    doneBarButton.enabled = YES;
+}
+
 
 @end

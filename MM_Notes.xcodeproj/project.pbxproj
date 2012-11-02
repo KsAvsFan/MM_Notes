@@ -21,6 +21,8 @@
 		1FD149A01643037600A8F5CC /* MM_Notes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1FD1499E1643037600A8F5CC /* MM_Notes.xcdatamodeld */; };
 		1FD149A31643037600A8F5CC /* MM_MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD149A21643037600A8F5CC /* MM_MasterViewController.m */; };
 		1FD149A61643037600A8F5CC /* MM_DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD149A51643037600A8F5CC /* MM_DetailViewController.m */; };
+		1FD149AE16430B3500A8F5CC /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD149AD16430B3500A8F5CC /* Event.m */; };
+		1FD149B016430E1C00A8F5CC /* yellow_notebook_paper_0578-307x400.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1FD149AF16430E1C00A8F5CC /* yellow_notebook_paper_0578-307x400.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,9 @@
 		1FD149A21643037600A8F5CC /* MM_MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MM_MasterViewController.m; sourceTree = "<group>"; };
 		1FD149A41643037600A8F5CC /* MM_DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MM_DetailViewController.h; sourceTree = "<group>"; };
 		1FD149A51643037600A8F5CC /* MM_DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MM_DetailViewController.m; sourceTree = "<group>"; };
+		1FD149AC16430B3500A8F5CC /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		1FD149AD16430B3500A8F5CC /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		1FD149AF16430E1C00A8F5CC /* yellow_notebook_paper_0578-307x400.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "yellow_notebook_paper_0578-307x400.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +105,8 @@
 				1FD149A41643037600A8F5CC /* MM_DetailViewController.h */,
 				1FD149A51643037600A8F5CC /* MM_DetailViewController.m */,
 				1FD1499E1643037600A8F5CC /* MM_Notes.xcdatamodeld */,
+				1FD149AC16430B3500A8F5CC /* Event.h */,
+				1FD149AD16430B3500A8F5CC /* Event.m */,
 				1FD1498A1643037600A8F5CC /* Supporting Files */,
 			);
 			path = MM_Notes;
@@ -108,6 +115,7 @@
 		1FD1498A1643037600A8F5CC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1FD149AF16430E1C00A8F5CC /* yellow_notebook_paper_0578-307x400.jpg */,
 				1FD1498B1643037600A8F5CC /* MM_Notes-Info.plist */,
 				1FD1498C1643037600A8F5CC /* InfoPlist.strings */,
 				1FD1498F1643037600A8F5CC /* main.m */,
@@ -176,6 +184,7 @@
 				1FD149981643037600A8F5CC /* Default@2x.png in Resources */,
 				1FD1499A1643037600A8F5CC /* Default-568h@2x.png in Resources */,
 				1FD1499D1643037600A8F5CC /* MainStoryboard.storyboard in Resources */,
+				1FD149B016430E1C00A8F5CC /* yellow_notebook_paper_0578-307x400.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,6 +200,7 @@
 				1FD149A01643037600A8F5CC /* MM_Notes.xcdatamodeld in Sources */,
 				1FD149A31643037600A8F5CC /* MM_MasterViewController.m in Sources */,
 				1FD149A61643037600A8F5CC /* MM_DetailViewController.m in Sources */,
+				1FD149AE16430B3500A8F5CC /* Event.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

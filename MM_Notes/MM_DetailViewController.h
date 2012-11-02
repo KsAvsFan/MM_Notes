@@ -9,9 +9,16 @@
 #import <UIKit/UIKit.h>
 
 @interface MM_DetailViewController : UIViewController
+{
+    IBOutlet    UILabel*            characterCountLabel;
+    IBOutlet    UIBarButtonItem*    doneBarButton;
+    IBOutlet    UITextView*        noteTextView;
+}
 
 @property (strong, nonatomic) id detailItem;
 
 @property (strong, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+
+-(IBAction)doneButton:(id)sender;
 
 @end
