@@ -23,6 +23,10 @@
 		1FD149A61643037600A8F5CC /* MM_DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD149A51643037600A8F5CC /* MM_DetailViewController.m */; };
 		1FD149AE16430B3500A8F5CC /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD149AD16430B3500A8F5CC /* Event.m */; };
 		1FD149B016430E1C00A8F5CC /* yellow_notebook_paper_0578-307x400.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1FD149AF16430E1C00A8F5CC /* yellow_notebook_paper_0578-307x400.jpg */; };
+		1FFB5F0316447A2C00C88C00 /* notepad.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1FFB5F0216447A2C00C88C00 /* notepad.jpg */; };
+		1FFB5F081644922100C88C00 /* arrow 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FFB5F051644922100C88C00 /* arrow 1.png */; };
+		1FFB5F091644922100C88C00 /* arrow 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FFB5F061644922100C88C00 /* arrow 2.png */; };
+		1FFB5F0A1644922100C88C00 /* trash.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FFB5F071644922100C88C00 /* trash.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +53,10 @@
 		1FD149AC16430B3500A8F5CC /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		1FD149AD16430B3500A8F5CC /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		1FD149AF16430E1C00A8F5CC /* yellow_notebook_paper_0578-307x400.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "yellow_notebook_paper_0578-307x400.jpg"; sourceTree = "<group>"; };
+		1FFB5F0216447A2C00C88C00 /* notepad.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = notepad.jpg; sourceTree = "<group>"; };
+		1FFB5F051644922100C88C00 /* arrow 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow 1.png"; sourceTree = "<group>"; };
+		1FFB5F061644922100C88C00 /* arrow 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow 2.png"; sourceTree = "<group>"; };
+		1FFB5F071644922100C88C00 /* trash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trash.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +123,10 @@
 		1FD1498A1643037600A8F5CC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1FFB5F051644922100C88C00 /* arrow 1.png */,
+				1FFB5F061644922100C88C00 /* arrow 2.png */,
+				1FFB5F071644922100C88C00 /* trash.png */,
+				1FFB5F0216447A2C00C88C00 /* notepad.jpg */,
 				1FD149AF16430E1C00A8F5CC /* yellow_notebook_paper_0578-307x400.jpg */,
 				1FD1498B1643037600A8F5CC /* MM_Notes-Info.plist */,
 				1FD1498C1643037600A8F5CC /* InfoPlist.strings */,
@@ -185,6 +197,10 @@
 				1FD1499A1643037600A8F5CC /* Default-568h@2x.png in Resources */,
 				1FD1499D1643037600A8F5CC /* MainStoryboard.storyboard in Resources */,
 				1FD149B016430E1C00A8F5CC /* yellow_notebook_paper_0578-307x400.jpg in Resources */,
+				1FFB5F0316447A2C00C88C00 /* notepad.jpg in Resources */,
+				1FFB5F081644922100C88C00 /* arrow 1.png in Resources */,
+				1FFB5F091644922100C88C00 /* arrow 2.png in Resources */,
+				1FFB5F0A1644922100C88C00 /* trash.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +331,7 @@
 				1FD149AB1643037600A8F5CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -12,13 +12,15 @@
 {
     IBOutlet    UILabel*            characterCountLabel;
     IBOutlet    UIBarButtonItem*    doneBarButton;
-    IBOutlet    UITextView*        noteTextView;
+//    IBOutlet    UITextView*        noteTextView;
 }
 
 @property (strong, nonatomic) id detailItem;
 
 @property (strong, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+@property (strong, retain) IBOutlet UITextView *noteTextView;
 
 -(IBAction)doneButton:(id)sender;
+-(IBAction)deleteButton:(id)sender;
 
 @end

@@ -33,6 +33,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+//  headerView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"myBackground.png"]];
+    self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"yellow_notebook_paper_0578-307x400.jpg"]];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
     UIBarButtonItem *addButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)] autorelease];
@@ -120,6 +123,7 @@
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+        NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
         [[segue destinationViewController] setDetailItem:object];
     }
 }
@@ -226,7 +230,13 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = @"New note";//[[object valueForKey:@"timeStamp"] description];
+    NSLog (@"%@", [[object valueForKey:@"timeStamp"] description]);
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MMM dd hh:mm a"];
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
+    cell.textLabel.text = @"New note on %@",[dateFormatter stringFromDate:[object valueForKey:@"timeStamp"]];
+    [dateFormatter release];
+
 
 
 }

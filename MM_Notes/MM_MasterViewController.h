@@ -11,6 +11,9 @@
 #import <CoreData/CoreData.h>
 
 @interface MM_MasterViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+{
+    IBOutlet    UITableView*    noteTableView;
+}
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
