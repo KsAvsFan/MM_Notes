@@ -31,6 +31,8 @@
 
 - (void)viewDidLoad
 {
+
+
     [super viewDidLoad];
     self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"yellowbackground.png"]];
     self.tableView.separatorColor = [UIColor lightGrayColor];
@@ -96,13 +98,14 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-//    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
 
     [self configureCell:cell atIndexPath:indexPath];
+    
+    cell.textLabel.font = [UIFont fontWithName:@"MarkerFelt-Thin" size:14.0f];
     cell.textLabel.textColor = [UIColor brownColor];
-    cell.textLabel.font = [UIFont systemFontOfSize:14.0f];
     cell.detailTextLabel.font = [UIFont systemFontOfSize:12.0];
     cell.detailTextLabel.textColor = [UIColor darkGrayColor];
+    
     return cell;
 }
 
@@ -257,27 +260,27 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    NSLog (@"%@", [[object valueForKey:@"timeStamp"] description]);
+    
+    // Configure and populate the textLabel
+    cell.textLabel.text = [object valueForKey:@"noteItem"];
+
+//    cell.textLabel.lineBreakMode = NSLineBreakByTruncatingTail;
+//    cell.textLabel.numberOfLines = 1;
+//    CGRect aFrame = cell.textLabel.frame;
+//    aFrame.size.width = 10;  // for example
+//    cell.textLabel.frame = aFrame;
+
+    // Configure and populate the detailTextlabel (timestamp)
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"h:mm a"];
-    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
-
-    cell.textLabel.lineBreakMode = NSLineBreakByTruncatingTail;
-    cell.textLabel.numberOfLines = 1;
-    CGRect aFrame = cell.textLabel.frame;
-    aFrame.size.width = 10;  // for example
-    cell.textLabel.frame = aFrame;
-    
-    cell.textLabel.text = [object valueForKey:@"noteItem"];
+    [dateFormatter setTimeZone:[NSTimeZone localTimeZone]];
     cell.detailTextLabel.text = [dateFormatter stringFromDate:[object valueForKey:@"timeStamp"]];
-    
     [dateFormatter release];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [self.tableView reloadData];
-    
 }
 
 

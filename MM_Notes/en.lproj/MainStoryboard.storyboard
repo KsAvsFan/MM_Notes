@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2843" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2843" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1929"/>
     </dependencies>
@@ -81,21 +81,36 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="yellow_notebook_paper_0578-307x400.jpg" id="5lW-QB-GFL">
-                                <rect key="frame" x="0.0" y="0.0" width="325" height="416"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="yellow_notebook_paper_0578-307x400.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="5lW-QB-GFL">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="325" id="rbU-jI-eRR"/>
+                                </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" showsHorizontalScrollIndicator="NO" id="D2Y-FJ-etl">
-                                <rect key="frame" x="43" y="26" width="261" height="350"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D2Y-FJ-etl">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="261" id="67Q-B1-7Ah"/>
+                                    <constraint firstAttribute="height" constant="350" id="6OI-r3-cKx"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <connections>
                                     <outlet property="delegate" destination="21" id="cqo-BP-cB7"/>
                                 </connections>
                             </textView>
-                            <button opaque="NO" alpha="0.70000000000000007" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="k0e-pn-IpT">
-                                <rect key="frame" x="150" y="383" width="24" height="24"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Detail view content goes here" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="27">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="197" id="NrA-ya-Y9g"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" size="system"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" alpha="0.70000000000000007" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k0e-pn-IpT">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="aTK-gR-rkZ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Del" image="trash.png">
+                                <state key="normal" image="trash.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -106,10 +121,12 @@
                                     <action selector="deleteButton:" destination="21" eventType="touchUpInside" id="zWF-DS-u9c"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.70000000000000007" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hBJ-er-VN7">
-                                <rect key="frame" x="246" y="383" width="24" height="24"/>
+                            <button opaque="NO" alpha="0.70000000000000007" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBJ-er-VN7">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="EbK-DF-DwZ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="->" image="arrow 1.png">
+                                <state key="normal" image="arrow 1.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -117,10 +134,13 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" alpha="0.70000000000000007" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fn9-g9-aDy">
-                                <rect key="frame" x="59" y="383" width="24" height="24"/>
+                            <button opaque="NO" alpha="0.70000000000000007" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fn9-g9-aDy">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="Sds-fQ-oXP"/>
+                                    <constraint firstAttribute="height" constant="24" id="mFN-wd-UHu"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="&lt;-" image="arrow 2.png">
+                                <state key="normal" image="arrow 2.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -128,20 +148,37 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ORw-F1-6QQ">
-                                <rect key="frame" x="8" y="5" width="27" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORw-F1-6QQ">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="IWb-q3-L3h"/>
+                                    <constraint firstAttribute="width" constant="27" id="zIU-CY-XgD"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Detail view content goes here" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" id="27">
-                                <rect key="frame" x="111" y="7" width="197" height="18"/>
-                                <fontDescription key="fontDescription" type="system" size="system"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="27" firstAttribute="top" secondItem="22" secondAttribute="top" constant="7" id="047-nr-09Z"/>
+                            <constraint firstItem="27" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="111" id="2li-Pc-y8S"/>
+                            <constraint firstItem="ORw-F1-6QQ" firstAttribute="top" secondItem="22" secondAttribute="top" constant="5" id="3aC-1B-MC2"/>
+                            <constraint firstItem="k0e-pn-IpT" firstAttribute="bottom" secondItem="hBJ-er-VN7" secondAttribute="bottom" type="default" id="3xL-Ok-w79"/>
+                            <constraint firstAttribute="trailing" secondItem="hBJ-er-VN7" secondAttribute="trailing" constant="50" id="7WP-1X-N1o"/>
+                            <constraint firstItem="fn9-g9-aDy" firstAttribute="bottom" secondItem="k0e-pn-IpT" secondAttribute="bottom" type="default" id="7ZE-1C-QEE"/>
+                            <constraint firstItem="ORw-F1-6QQ" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="8" id="GcT-fJ-yEe"/>
+                            <constraint firstItem="5lW-QB-GFL" firstAttribute="top" secondItem="22" secondAttribute="top" type="default" id="Gx4-KP-KDf"/>
+                            <constraint firstItem="fn9-g9-aDy" firstAttribute="baseline" secondItem="hBJ-er-VN7" secondAttribute="baseline" type="default" id="I69-Vu-02u"/>
+                            <constraint firstItem="fn9-g9-aDy" firstAttribute="top" secondItem="k0e-pn-IpT" secondAttribute="top" type="default" id="Kc7-XR-lkW"/>
+                            <constraint firstItem="5lW-QB-GFL" firstAttribute="bottom" secondItem="22" secondAttribute="bottom" type="default" id="QEB-u9-egd"/>
+                            <constraint firstAttribute="bottom" secondItem="fn9-g9-aDy" secondAttribute="bottom" constant="9" id="VTU-hg-ID6"/>
+                            <constraint firstItem="5lW-QB-GFL" firstAttribute="leading" secondItem="22" secondAttribute="leading" type="default" id="Zc9-LJ-v2L"/>
+                            <constraint firstItem="D2Y-FJ-etl" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="43" id="bUx-zs-r2K"/>
+                            <constraint firstItem="hBJ-er-VN7" firstAttribute="top" secondItem="k0e-pn-IpT" secondAttribute="top" type="default" id="lWa-98-WcH"/>
+                            <constraint firstItem="k0e-pn-IpT" firstAttribute="centerX" secondItem="5lW-QB-GFL" secondAttribute="centerX" type="default" id="ocm-Nv-rpQ"/>
+                            <constraint firstItem="fn9-g9-aDy" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="59" id="qjp-7M-9Mt"/>
+                            <constraint firstItem="D2Y-FJ-etl" firstAttribute="top" secondItem="22" secondAttribute="top" constant="26" id="yo4-YC-ybi"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="26">
                         <barButtonItem key="rightBarButtonItem" title="Done" style="done" id="jkl-CL-Ji2">
@@ -153,7 +190,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="characterCountLabel" destination="ORw-F1-6QQ" id="ff1-jc-wjB"/>
-                        <outlet property="detailDescriptionLabel" destination="27" id="28"/>
+                        <outlet property="detailDescriptionLabel" destination="27" id="v64-N3-f2t"/>
                         <outlet property="doneBarButton" destination="jkl-CL-Ji2" id="2Ng-mp-stX"/>
                         <outlet property="noteTextView" destination="D2Y-FJ-etl" id="ZyX-1A-ubW"/>
                     </connections>
@@ -186,6 +223,9 @@
             <relationships>
                 <relationship kind="outlet" name="noteTableView" candidateClass="UITableView"/>
             </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

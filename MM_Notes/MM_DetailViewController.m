@@ -73,42 +73,34 @@
     }
 }
 
-// Consider refactoring and replacing the time formatting in the configureView methods with the following:
-//-(NSString* )formatDateString
-//{
-//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-//    [dateFormatter setDateFormat:@"mm:ss"];
-//    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
-//    NSString *formattedString = [dateFormatter stringFromDate:[self.detailItem valueForKey:@"timeStamp"]];
-//    //        secondLabel.text = timeString;
-//    [dateFormatter release];
-//    return formattedString;
-//}
-
 - (void)configureView
 {
     // Update the user interface for the detail item.
 
     if (self.detailItem) {
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"MMM dd h:mm a"];
-        [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
-        self.detailDescriptionLabel.text = [dateFormatter stringFromDate:[self.detailItem valueForKey:@"timeStamp"]];
+        
+        // Get date from Context
+        NSDate* date = [self.detailItem valueForKey:@"timeStamp"];
+        
+        // Format the date
+        NSDateFormatter* dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
+        [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+        NSString* dateText;
+        dateText = [dateFormatter stringFromDate:date];
+        
+        // Set the UILabel to be the formatted date
+        self.detailDescriptionLabel.text = dateText;
+        
+        // Get the note text from Context
+        //cell.textLabel setFont:[UIFont fontWithName:@"MarkerFelt-Thin" size:14]];
+        [self.noteTextView setFont:[UIFont fontWithName:@"MarkerFelt-Thin" size:15]];
         self.noteTextView.text = [self.detailItem valueForKey:@"noteItem"];
-        [dateFormatter release];
+        
+        // Determine length of text in textView and assign length to label
+        NSUInteger length;
+        length = self.noteTextView.text.length;
+        characterCountLabel.text = [NSString stringWithFormat:@"%u", length];
     }
-    
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"MMM dd hh:mm a"];
-    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
-    self.detailDescriptionLabel.text = [dateFormatter stringFromDate:[self.detailItem valueForKey:@"timeStamp"]];
-    //        secondLabel.text = timeString;
-    [dateFormatter release];
-    
-    
-    NSUInteger length;
-    length = _noteTextView.text.length;
-    characterCountLabel.text = [NSString stringWithFormat:@"%u", length];
 }
 
 - (void)viewDidLoad
@@ -134,18 +126,12 @@
     NSUInteger length;
 
     length = [textView.text length];
-//    if (length < 20) {
-//        self.navigationItem.title = textView.text;
-//    }
-    if (length < 25)
-    {
+    if (length < 25) {
         characterCountLabel.font = [UIFont systemFontOfSize:14];
     }
-    else
-    {
+    else {
         characterCountLabel.font = [UIFont boldSystemFontOfSize:14];
     }
-
     characterCountLabel.text = [NSString stringWithFormat:@"%u", length];
     doneBarButton.enabled = YES;
 }
@@ -154,33 +140,26 @@
 
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
-//    NSArray* components = [textView.text componentsSeparatedByString:@"\n"];
-//    NSString *firstElement = [components objectAtIndex:0];
-//    NSInteger firstElementLength = [firstElement length];
-//    NSLog(@"components = %@", components);
-//    NSLog(@"components count = %i", [components count]);
-//    NSLog(@"firstElementLength = %i", firstElementLength);
-//    NSLog(titleSet ? @"Yes" : @"No");
-//    NSLog(@"components = %@ and count = %i", components, [components count]);
-//    if (([components count] > 1) && (firstElementLength > 0) && (titleSet == YES))
-//    {   
-//        setTitle = firstElement;
-//        titleSet = NO;
-//        NSLog(@"titleSet was just set to NO");
-//        self.navigationItem.title = setTitle;
-////        self.navigationItem.title = [components lastObject];
-//    }
-//    else if (titleSet == YES)
-//    {
-//        self.navigationItem.title = textView.text;
-//    }
-//    return true;
-
     NSArray* components = [textView.text componentsSeparatedByString:@"\n"];
     NSString *firstElement = [components objectAtIndex:0];
     self.navigationItem.title = firstElement;
     return true;
-
+//  NSString *title = [[[NSString alloc] init] autorelease];
+//  NSArray *component
+    
+//  component = [_oNoteTextVIew.text componentSearatedByString:@"\n"];
+//  int i = 0;
+    
+//  while (i < [component count] && [component[i] isEqualToString:@"""])
+//  {
+//  i++
+//  }
+    
+//  title = component[i]
+    
+    //assign title to naviagtioitem.title
+    // [_detailItem setValue:title forKey:@"title"];
+    // [self saveContext];
 
 }
 
