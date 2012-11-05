@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1811" systemVersion="11E53" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="iOS 5.0">
     <entity name="Event" representedClassName="Event">
-        <attribute name="noteItem" optional="YES" attributeType="String" minValueString="3" maxValueString="280" syncable="YES"/>
+        <attribute name="noteItem" optional="YES" attributeType="String" maxValueString="280" syncable="YES"/>
         <attribute name="timeStamp" optional="YES" attributeType="Date">
             <userInfo/>
         </attribute>

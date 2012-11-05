@@ -32,14 +32,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-//  headerView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"myBackground.png"]];
-    self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"yellow_notebook_paper_0578-307x400.jpg"]];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"yellowbackground.png"]];
+    self.tableView.separatorColor = [UIColor lightGrayColor];
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
     UIBarButtonItem *addButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)] autorelease];
     self.navigationItem.rightBarButtonItem = addButton;
+    [self.navigationController.navigationBar setTintColor:[UIColor brownColor]];
+    
+    
+//    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+//    
+//    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+//    NSError *error = nil;
+//    NSInteger count = [context countForFetchRequest:request error:&error];
+//    [request release];
+//    self.navigationItem.title = [NSString stringWithFormat:@"Notes (%i)", count];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -67,6 +76,7 @@
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
+    
     [self performSegueWithIdentifier:@"showDetail" sender:self];
 }
 
@@ -86,7 +96,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+//    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
+
     [self configureCell:cell atIndexPath:indexPath];
+    cell.textLabel.textColor = [UIColor brownColor];
+    cell.textLabel.font = [UIFont systemFontOfSize:14.0f];
+    cell.detailTextLabel.font = [UIFont systemFontOfSize:12.0];
+    cell.detailTextLabel.textColor = [UIColor darkGrayColor];
     return cell;
 }
 
@@ -121,10 +137,21 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        NSLog(@"Called showDetail segue");
+        NSIndexPath *indexPath = [[NSIndexPath alloc] init];
+        if ([self.tableView indexPathsForSelectedRows])
+        {
+            indexPath = [self.tableView indexPathForSelectedRow];
+            
+        }
+        else
+        {
+            indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+        }
         NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-        [[segue destinationViewController] setDetailItem:object];
+        [[segue destinationViewController] setDetailItem:object sourceViewContext: context];
+        
     }
 }
 
@@ -232,13 +259,40 @@
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
     NSLog (@"%@", [[object valueForKey:@"timeStamp"] description]);
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"MMM dd hh:mm a"];
+    [dateFormatter setDateFormat:@"h:mm a"];
     [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
-    cell.textLabel.text = @"New note on %@",[dateFormatter stringFromDate:[object valueForKey:@"timeStamp"]];
+
+    cell.textLabel.lineBreakMode = NSLineBreakByTruncatingTail;
+    cell.textLabel.numberOfLines = 1;
+    CGRect aFrame = cell.textLabel.frame;
+    aFrame.size.width = 10;  // for example
+    cell.textLabel.frame = aFrame;
+    
+    cell.textLabel.text = [object valueForKey:@"noteItem"];
+    cell.detailTextLabel.text = [dateFormatter stringFromDate:[object valueForKey:@"timeStamp"]];
+    
     [dateFormatter release];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.tableView reloadData];
+    
+}
 
 
-
+- (NSUInteger)countEntity:(NSString *)entityName
+                inContext:(NSManagedObjectContext *)context{
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:entityName
+                                              inManagedObjectContext:context];
+    [request setEntity:entity];
+    [request setIncludesSubentities:NO];
+    NSError *error = nil;
+    NSUInteger count = [context countForFetchRequest:request error:&error];
+    [request release];
+    return count;
 }
 
 @end

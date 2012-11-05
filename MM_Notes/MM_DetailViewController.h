@@ -20,6 +20,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 @property (strong, retain) IBOutlet UITextView *noteTextView;
 
+@property (strong, nonatomic) id sourceContext;
+
+
 -(IBAction)doneButton:(id)sender;
 -(IBAction)deleteButton:(id)sender;
 
